@@ -1,4 +1,3 @@
-import pandas
 import pandas as pd
 import datetime
 from tkinter import filedialog as fd
@@ -51,9 +50,9 @@ if __name__ == "__main__":
 
     frame_out = pd.concat([adds, drops])
 
-    datestring = datetime.date.today().strftime("%Y%m%d")
-    output_name = "add_drop_"+datestring+".csv"
-
+    # datestring = datetime.date.today().strftime("%Y%m%d")
+    # output_name = "add_drop_"+datestring+".csv"
+    output_name = fd.asksaveasfilename(filetypes=[("CSV", ".csv")], defaultextension=".csv")
     frame_out.to_csv(output_name, index=False)
 
     popup("Done", "Done")

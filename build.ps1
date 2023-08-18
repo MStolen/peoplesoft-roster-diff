@@ -1,1 +1,1 @@
-pyinstaller -F -w -y -n RosterCompare main.py
+pyinstaller --hidden-import=openpyxl -F -w -y -n RosterCompare main.py
