@@ -13,11 +13,19 @@ def drop_unused_cols(df: pandas.DataFrame) -> pandas.DataFrame:
     """
     # Drop listed columns
     df.drop(labels=['Notify', 'Grade Basis', 'Units', 'Program and Plan',
-                    'Concentration', 'Minor', 'Level', 'Has Participated',
+                    'Minor', 'Level', 'Has Participated',
                     'Has NOT Participated', 'Early Alert', 'Gender Identity',
                     'Preferred Pronouns'],
             axis=1,
             inplace=True)
+    if 'Concentration' in df.columns:
+        df.drop(labels=['Concentration'],
+                axis=1,
+                inplace=True)
+    else:
+        df.drop(labels=['SubPlan'],
+                axis=1,
+                inplace=True)
     # Remove empty rows (roes containing NaN)
     return df.dropna()
 
